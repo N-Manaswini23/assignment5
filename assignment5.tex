@@ -142,32 +142,29 @@ Then $E(XY)$ equals
 \section*{SOLUTION}
 Given probability density function for $(X,Y)$
 \begin{align}
-f_{X,Y}(x,y)&=\frac{1}{\pi}e^{(\frac{3}{2}xy-\frac{25}{32}x^2-2y^2)}\\ \label{1}
--\infty &< x,y < \infty \\
-\int_{-\infty}^{+\infty} e^{-(ax^2+bx+c)} &= \sqrt{\frac{\pi}{a}}e^{\frac{b^2-4ac}{4a}} \label{eq:1} \\
-2\int_{-\infty}^{+\infty}x^2 e^{-x^2} &= \int_{-\infty}^{+\infty} e^{-x^2}=\sqrt{\pi} \label{eq:2} 
+f_{X,Y}(x,y)&=\frac{1}{\pi}e^{(\frac{3}{2}xy-\frac{25}{32}x^2-2y^2)} \label{1} \\ 
+-\infty &< x,y < \infty
+\end{align}
+Joint pdf of bivariate normal distribution $N(\mu_x,\mu_y,\sigma_x^2,\sigma_y^2,\rho)$ is
+\begin{align}
+f_{X,Y}(x,y)&=\frac{1}{2\pi\sigma_x\sigma_y\sqrt{1-p^2}} \times \notag \\ &e^{\frac{-1}{2(1-p^2)}\sbrak{\sbrak{\frac{(x-\mu_x)}{\sigma_x}}^2+\sbrak{\frac{(y-\mu_y)}{\sigma_y}}^2-2\rho\sbrak{\frac{(x-\mu_x)}{\sigma_x}\frac{(y-\mu_y)}{\sigma_y}}}} \label{eq}
+\end{align}
+Comparing \eqref{eq} and \eqref{1} we get 
+\begin{align}
+\mu_x&=\mu_y=0 \label{mu}\\
+\sigma_x&=1 \label{sig1}\\
+\sigma_y&= \frac{5}{8} \label{sig2}\\
+\rho&=\frac{3}{5} \label{rho}
 \end{align}
 We need to find $E(XY)$
 \begin{align}
-E(XY)&= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} xyf_{X,Y}(x,y)\mathrm{d}y \mathrm{d}x \label{2}\\
-&=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} xy \frac{1}{\pi}e^{(\frac{3}{2}xy-\frac{25}{32}x^2-2y^2)} \mathrm{d}y \mathrm{d}x \\
-&=\frac{1}{\pi}\int_{-\infty}^{+\infty} xe^{-\frac{25}{32}x^2 } \int_{-\infty}^{+\infty} y e^{(\frac{3}{2}xy-2y^2)} \mathrm{d}y \mathrm{d}x \label{3}
+E(XY)&= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} xyf_{X,Y}(x,y)\mathrm{d}y \mathrm{d}x \label{2}
 \end{align}
-let 
+Substiting \eqref{eq} in \eqref{2} and simplifing ig,we get
 \begin{align}
-I_1&=\int_{-\infty}^{+\infty} y e^{(\frac{3xy}{2}-2y^2)} \mathrm{d}y \label{eq:3} \\
-I_1 &= \frac{-1}{4} \sbrak{\int_{-\infty}^{+\infty}(\frac{3x}{2}-4y)e^{(\frac{3xy}{2}-2y^2)} \mathrm{d}y} \notag \\
-& -\frac{3}{2}x\frac{(-1)}{4} \sbrak{\int_{-\infty}^{+\infty}e^{(\frac{3}{2}xy-2y^2)} \mathrm{d}y } \label{4}
+E(XY)&=\rho \sigma_x\sigma_y+\mu_x\mu_y \label{eq:3}
 \end{align}
-On solving \eqref{4} using \eqref{eq:1} and integration rules we get
-\begin{align}
-\int_{-\infty}^{+\infty} y e^{(\frac{3xy}{2}-2y^2)} \mathrm{d}y &= \frac{3x}{8} \sqrt{\frac{\pi}{2}}e^{\frac{9x^2}{32}} \label{5}
-\end{align}
-Substituting \eqref{5} in \eqref{3} we get
-\begin{align}
-E(XY)&=\frac{1}{\sqrt{2\pi}}\frac{3}{8}\int_{-\infty}^{+\infty} x^2e^{-\frac{x^2}{2} } \mathrm{d}x
-\end{align}
-Solving this using \eqref{eq:2} we get
+Substituting \eqref{mu},\eqref{sig1},\eqref{sig2},\eqref{rho} in \eqref{eq:3} we get
 \begin{align}
 E(XY)&=\frac{3}{8} \label{6}\\
 \therefore 8E(XY)&=3
