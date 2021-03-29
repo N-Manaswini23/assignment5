@@ -150,12 +150,22 @@ Joint pdf of bivariate normal distribution $N(\mu_x,\mu_y,\sigma_x^2,\sigma_y^2,
 f_{X,Y}(x,y)&=\frac{1}{2\pi\sigma_x\sigma_y\sqrt{1-p^2}} \times \notag \\ &e^{\frac{-1}{2(1-p^2)}\sbrak{\sbrak{\frac{(x-\mu_x)}{\sigma_x}}^2+\sbrak{\frac{(y-\mu_y)}{\sigma_y}}^2-2\rho\sbrak{\frac{(x-\mu_x)}{\sigma_x}\frac{(y-\mu_y)}{\sigma_y}}}} \label{eq}
 \end{align}
 Comparing \eqref{eq} and \eqref{1} we get 
-\begin{align}
-\mu_x&=\mu_y=0 \label{mu}\\
-\sigma_x&=1 \label{sig1}\\
-\sigma_y&= \frac{5}{8} \label{sig2}\\
-\rho&=\frac{3}{5} \label{rho}
-\end{align}
+
+\begin{table}[h!]
+\resizebox{7cm}{!}
+{
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\mu_x$ & $\mu_y$ & $\sigma_x$ & $\sigma_y$ & $\rho$ \\
+\hline
+$0$ & $0$ & $1$ & $\frac{5}{8}$ & $\frac{3}{5}$\\
+\hline
+\end{tabular}
+}
+\caption{Table 1} 
+\label{tab:1}
+\end{table}
+
 We need to find $E(XY)$
 \begin{align}
 E(XY)&= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} xyf_{X,Y}(x,y)\mathrm{d}y \mathrm{d}x \label{2}
@@ -164,7 +174,7 @@ Substiting \eqref{eq} in \eqref{2} and simplifing ig,we get
 \begin{align}
 E(XY)&=\rho \sigma_x\sigma_y+\mu_x\mu_y \label{eq:3}
 \end{align}
-Substituting \eqref{mu},\eqref{sig1},\eqref{sig2},\eqref{rho} in \eqref{eq:3} we get
+Substituting table\eqref{tab:1} in \eqref{eq:3} we get
 \begin{align}
 E(XY)&=\frac{3}{8} \label{6}\\
 \therefore 8E(XY)&=3
